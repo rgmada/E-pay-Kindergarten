@@ -1,4 +1,4 @@
-package org.scrum.domain.team;
+package org.scrum.domain.entities;
 
 import javax.persistence.Entity;
 

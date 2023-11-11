@@ -1,6 +1,6 @@
-package org.scrum.domain.team;
+package org.scrum.domain.entities;
 
-import org.scrum.domain.team.Team.Specialization;
+import org.scrum.domain.entities.Team.Specialization;
 
 public class TeamFactory {
 	public Team buildTeam(Integer id) {
