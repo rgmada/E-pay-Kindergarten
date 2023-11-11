@@ -1,0 +1,186 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.feaa.msd</groupId>
+	<artifactId>msd.t2_c4.spring_domain</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<!-- Spring Framework version -->
+		<!-- <org.springframework.version>5.2.0.RELEASE</org.springframework.version> -->
+		<org.springframework.version>5.3.10</org.springframework.version>
+		
+		<!-- Spring App deps' versions -->
+		<javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+		<javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+		<junit.version>4.12</junit.version>
+		<junit.jupiter.version>5.8.1</junit.jupiter.version>
+		<junit.platform.version>1.8.1</junit.platform.version>
+		
+		<hibernate-entitymanager.version>5.2.10.Final</hibernate-entitymanager.version>
+		<ojdbc10.version>19.3.0.0</ojdbc10.version>
+		<validation-api.version>2.0.0.Final</validation-api.version>
+		<hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
+		<javax.el-api.version>3.0.0</javax.el-api.version>
+		<javax.el.version>2.2.6</javax.el.version>
+		<spring-data-jpa.version>2.1.2.RELEASE</spring-data-jpa.version>
+		<commons-beanutils.version>1.8.3</commons-beanutils.version>
+		
+		<!-- maven-plugins' versions -->
+		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+	</properties>
+
+	<dependencies>
+		<!-- Spring framework deps -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+        
+        <!-- Spring app deps -->
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+        </dependency>
+        <dependency>
+		    <groupId>javax.annotation</groupId>
+		    <artifactId>javax.annotation-api</artifactId>
+		    <version>${javax.annotation-api.version}</version>
+		</dependency>
+		
+		 <!-- Spring test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <version>${junit.jupiter.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		 <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+		
+        <!-- Spring Data JPA -->
+        <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-entitymanager</artifactId>
+		   <version>${hibernate-entitymanager.version}</version>
+		</dependency>
+		<!-- Oracle JDBC: https://medium.com/oracledevs/oracle-jdbc-drivers-on-maven-central-64fcf724d8b  -->
+		<dependency>
+	    	<groupId>com.oracle.ojdbc</groupId>
+	    	<artifactId>ojdbc10</artifactId>
+	    	<version>${ojdbc10.version}</version>
+	    </dependency>
+	    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa  -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+		<!-- for maven only, add this to your pom to get BeanUtils, needed by the copyProperties code -->
+		 <dependency>
+		   <groupId>commons-beanutils</groupId>
+		   <artifactId>commons-beanutils</artifactId>
+		   <version>${commons-beanutils.version}</version>
+		 </dependency>
+		
+		<!-- Spring JEE Validation -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>${validation-api.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>${hibernate-validator.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.el</groupId>
+		    <artifactId>javax.el-api</artifactId>
+		    <version>${javax.el-api.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.glassfish.web</groupId>
+		    <artifactId>javax.el</artifactId>
+		    <version>${javax.el.version}</version>
+		</dependency>
+		
+	</dependencies>
+	
+	<!-- Project default-build configuration -->
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            	
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<skip>false</skip>
+					<includes>
+						<include>**/*Test1_SimpleDomainService</include>
+					</includes>
+				</configuration>
+				
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
